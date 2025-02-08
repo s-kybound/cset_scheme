@@ -24,4 +24,4 @@ The original implementation continues to exist within Source Academy, written in
 
 As such, in order to more efficiently explore the CSET machine, I am temporarily bailing on the Source Academy implementation to focus on the main topic - Scheme and the CSET machine. Hopefully, concretizing the CSET machine here will let us reimplement the Source Academy version better.
 
-I opt to rewrite it in OCaml, as my personal thought-to-program speed is higher here (as compared to TypeScript) due to the strong type system, and the compatibilty of such a system (an interpreter) with the functional paradigm. It's good practice as well.
+I opt to rewrite it in OCaml, as my personal thought-to-program speed is higher in any ML language for me (as compared to TypeScript) due to the strong type system, and the compatibilty of such a system (an interpreter) with the functional paradigm. It's good practice as well.
