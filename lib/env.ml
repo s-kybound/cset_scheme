@@ -15,5 +15,12 @@ match env with
     v
   with Not_found -> lookup str outer_env
 
-let extend_env (name: name) (value: 'a) (env: 'a env) : 'a env =
+let extend (name: name) (value: 'a) (env: 'a env) : 'a env =
   Local (env, [(name, value)])
+  
+let new_env bindings values env =
+  if List.length bindings <> List.length values then
+    raise (Failure "Mismatched bindings and values")
+  else
+    let bindings_list = List.combine bindings values in
+    Local (env, bindings_list)

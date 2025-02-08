@@ -8,8 +8,6 @@ type scheme_number =
 | Complex of scheme_number * scheme_number
 *)
 
-type params = string
-
 type expr =
 | Numeric of int (* for now *)
 | String of string
@@ -18,5 +16,5 @@ type expr =
 (* main priorities *)
 | Pair of expr * expr
 | List of expr list
-| Closure of params * expr * expr Env.env * unit Env.env
+| Closure of expr list * expr * expr Env.env * unit Env.env
 | Nil
