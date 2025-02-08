@@ -1,4 +1,4 @@
 (executable
  (public_name cset_scheme)
  (name main)
- (libraries cset_scheme))
+ (libraries cset_scheme sexplib))

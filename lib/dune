@@ -1,2 +1,3 @@
 (library
- (name cset_scheme))
+ (name cset_scheme)
+  (libraries sexplib))
