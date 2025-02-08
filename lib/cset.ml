@@ -98,5 +98,13 @@ let run state:state =
         decompose xs partial_new_state 
       | _ -> raise (Failure "cannot evaluate values of this type")
 
-let eval a = a
+let rec run_all state =
+  let new_state = run state in
+  if state = new_state then state
+  else run_all new_state
+let eval a = 
+  let (_, vs, _, _) = run_all ([Fragment a], [], Env.Global, Env.Global) in
+  match vs with
+  | (v :: _)-> v
+  | _ -> raise (Failure "Invalid evaluation result")
 
