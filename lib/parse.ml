@@ -63,3 +63,4 @@ let rec map_back sexpr =
   | Ast.Nil -> Sexplib.Sexp.List []
   | Ast.Bool t -> Sexplib.Sexp.Atom (if t then "#t" else "#f")
   | Ast.Closure (_, _, _, _) -> Sexplib.Sexp.Atom "<closure>"
+  | Ast.Builtin b -> Sexplib.Sexp.Atom ("<builtin> " ^ b)

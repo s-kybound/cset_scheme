@@ -17,4 +17,5 @@ type expr =
 | Pair of expr * expr
 | List of expr list
 | Closure of expr list * expr * expr Env.env * unit Env.env
+| Builtin of string
 | Nil
