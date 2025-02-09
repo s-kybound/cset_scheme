@@ -139,7 +139,7 @@ let execute_builtin b vals =
     (match new_stash with
      | Ast.Closure (params, body, closure_venv, closure_menv) :: _ ->
       let new_venv = Env.new_env (List.map (fun x -> match x with | Ast.Symbol x -> x | _ -> "") params) vals closure_venv in
-       (Fragment body :: cs, new_stash, new_venv, closure_menv)
+       (Fragment body :: Instruction (Env (venv, menv)) :: cs, new_stash, new_venv, closure_menv)
      | Ast.Builtin b :: _ -> 
       (cs, (execute_builtin b vals) :: new_stash, venv, menv)
      | _ -> raise (Failure "Invalid function call"))
@@ -169,7 +169,7 @@ let rec run_all state =
   else run_all new_state
 
 let eval a = 
-  let (_, vs, _, _) = run_all ([Fragment a], [], Env.Global, Env.Global) in
+  let (_, vs, _, _) = run_all ([Fragment a], [], Env.env_of (), Env.env_of ()) in
   match vs with
   | (v :: _)-> v
   | _ -> raise (Failure "Invalid evaluation result")
