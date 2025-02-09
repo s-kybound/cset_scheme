@@ -20,6 +20,9 @@ match env with
 
 let extend (name: name) (value: 'a) (env: 'a env) : 'a env =
   Local (env, [(name, value)])
+
+let env_of () = Global
+
 let new_env bindings values env =
   if List.length bindings <> List.length values then
     raise (Failure "Mismatched bindings and values")
